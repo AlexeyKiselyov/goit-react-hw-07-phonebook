@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { VscTrash } from 'react-icons/vsc';
+import { VscTrash, VscAccount } from 'react-icons/vsc';
 
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contactsSelectors';
@@ -23,7 +23,10 @@ export const ContactList = ({ onDeleteContact }) => {
       {!filter
         ? contacts.map(({ name, number, id }) => (
             <Contact key={id} data-id={id}>
-              {name}: {number}
+              <VscAccount size="15" />
+              <p>
+                {name}: {number}
+              </p>
               <Button
                 type="button"
                 name="deleteBtn"
@@ -36,7 +39,10 @@ export const ContactList = ({ onDeleteContact }) => {
           ))
         : filterContacts.map(({ name, number, id }) => (
             <Contact key={id} data-id={id}>
-              {name}: {number}
+              <VscAccount />
+              <span>
+                {name}: {number}
+              </span>
               <Button
                 type="button"
                 name="deleteBtn"

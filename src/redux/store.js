@@ -22,10 +22,12 @@ import filterReducer from './filter/filterSlice';
 // const persistedReducer = persistReducer(persistConfig, contactsReducer);
 
 export const store = configureStore({
+
   reducer: {
     contacts: contactsReducer,
     filter: filterReducer,
   },
+  
   // middleware: getDefaultMiddleware =>
   //   getDefaultMiddleware({
   //     serializableCheck: {

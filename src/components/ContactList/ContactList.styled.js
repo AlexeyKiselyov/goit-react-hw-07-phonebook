@@ -9,17 +9,28 @@ export const Ul = styled.ul`
 
 export const Contact = styled.li`
   margin-bottom: 10px;
-  margin-left: 20px;
+  margin-left: 5px;
+  padding-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap:wrap;
 
   font-weight: 600;
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
+  border-bottom:1px solid black;
+
+  p{
+    max-width: 290px;
+  }
 `;
 
 export const Button = styled.button`
-  margin-top: 5px;
-  margin-left: 10px;
+  margin-left: auto;
+  margin-right: 5px;
   padding: 4px 5px;
   min-width: 80px;
   height: 25px;
@@ -28,6 +39,7 @@ export const Button = styled.button`
   align-items: center;
   gap: 10px;
 
+  cursor:pointer;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.1;
