@@ -13,7 +13,6 @@ import { Contact, Ul, Button } from './ContactList.styled';
 export const ContactList = ({ onDeleteContact }) => {
   const contacts = useSelector(selectContacts);
   const filterContacts = useSelector(selectFilterContacts);
-  console.log(filterContacts);
 
   return (
     <>
