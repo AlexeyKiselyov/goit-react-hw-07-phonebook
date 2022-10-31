@@ -10,13 +10,15 @@ import {
   selectError,
   selectIsLoading,
 } from 'redux/contacts/contactsSelectors';
-// import { addContact, deleteContact } from 'redux/contacts/contactsSlice';
 import { updateFilter } from 'redux/filter/filterSlice';
 import {
   addContacts,
   deleteContacts,
   fetchContacts,
 } from 'redux/contacts/contactsOperations';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Box } from '../components/Box';
 import { useEffect } from 'react';
@@ -71,6 +73,7 @@ export const App = () => {
         <ContactList onDeleteContact={onDeleteContact} />
       </Section>
       {isLoading && <Loader />}
+      <ToastContainer autoClose={2000}/>
     </Box>
   );
 };

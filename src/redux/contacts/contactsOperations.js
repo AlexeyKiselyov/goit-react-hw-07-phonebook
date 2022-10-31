@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://635b78c9aa7c3f113dbd88cf.mockapi.io';
 
@@ -8,7 +9,7 @@ export const fetchContacts = createAsyncThunk(
 
   async (_, { rejectWithValue }) => {
     try {
-      const {data} = await axios('/contacts');
+      const { data } = await axios('/contacts');
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -21,7 +22,8 @@ export const addContacts = createAsyncThunk(
 
   async (newContact, { rejectWithValue }) => {
     try {
-      const {data} = await axios.post('/contacts',newContact);
+      const { data } = await axios.post('/contacts', newContact);
+      toast.success('Contact successfully added!');
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -35,6 +37,7 @@ export const deleteContacts = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       await axios.delete(`/contacts/${id}`);
+      toast.success('Contact successfully deleted!');
       return id;
     } catch (error) {
       return rejectWithValue(error.message);
