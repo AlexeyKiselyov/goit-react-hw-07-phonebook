@@ -12,6 +12,7 @@ export const fetchContacts = createAsyncThunk(
       const { data } = await axios('/contacts');
       return data;
     } catch (error) {
+      toast.error(error.message);
       return rejectWithValue(error.message);
     }
   }
@@ -26,6 +27,7 @@ export const addContacts = createAsyncThunk(
       toast.success('Contact successfully added!');
       return data;
     } catch (error) {
+      toast.error(error.message);
       return rejectWithValue(error.message);
     }
   }
@@ -40,6 +42,7 @@ export const deleteContacts = createAsyncThunk(
       toast.success('Contact successfully deleted!');
       return id;
     } catch (error) {
+      toast.error(error.message);
       return rejectWithValue(error.message);
     }
   }

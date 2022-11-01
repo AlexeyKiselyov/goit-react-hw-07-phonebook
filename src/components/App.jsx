@@ -7,7 +7,6 @@ import { Section } from '../components/Section/Section';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectContacts,
-  selectError,
   selectIsLoading,
 } from 'redux/contacts/contactsSelectors';
 import { updateFilter } from 'redux/filter/filterSlice';
@@ -17,7 +16,7 @@ import {
   fetchContacts,
 } from 'redux/contacts/contactsOperations';
 
-import { ToastContainer,toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Box } from '../components/Box';
@@ -28,9 +27,6 @@ import { Loader } from './Loader/Loader';
 export const App = () => {
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
-
-  const error = useSelector(selectError);
-  if(error)toast.error(error);
 
   const dispatch = useDispatch();
 
