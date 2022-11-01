@@ -17,7 +17,7 @@ import {
   fetchContacts,
 } from 'redux/contacts/contactsOperations';
 
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Box } from '../components/Box';
@@ -28,7 +28,9 @@ import { Loader } from './Loader/Loader';
 export const App = () => {
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
+
   const error = useSelector(selectError);
+  if(error)toast.error(error);
 
   const dispatch = useDispatch();
 
@@ -65,7 +67,6 @@ export const App = () => {
     >
       <Section title="Phonebook">
         <Phonebook onAddContact={onAddContact} />
-        {error && <p>{error}</p>}
       </Section>
 
       <Section title="Contacts">
